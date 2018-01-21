@@ -1,0 +1,16 @@
+----
+2017/06/24 09:11:27
+KanHQ: 1.1.0.0
+Win: 10.0.15063.0
+.NET: 4.0.30319.42000, 64bit
+IE: 9.11.15063.0
+flash: 18,0,0,203
+System.TypeInitializationException: '<StartupCode$KanHQ>.$KanHQ' のタイプ初期化子が例外をスローしました。 ---> System.IO.IOException: 別のプロセスで使用されているため、プロセスはファイル 'C:\Users\hiros\AppData\Local\Haxe\KanHQ\1.1.0.0\WININET.dll' にアクセスできません。
+   場所 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   場所 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   場所 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   場所 System.IO.File.InternalWriteAllBytes(String path, Byte[] bytes, Boolean checkHost)
+   場所 KanHQ.load@110(String name)
+   場所 <StartupCode$KanHQ>.$KanHQ..cctor()
+   --- 内部例外スタック トレースの終わり ---
+   場所 KanHQ.main(String[] argv)

@@ -1,0 +1,9 @@
+﻿@charset"UTF-8";
+ol.zero{list-style-type: decimal-leading-zero;}
+ol.iroha{list-style-type:hiragana-iroha;}
+ol.alpha{list-style-type:lower-alpha;}
+/*
+zeroは、01~99<ol class="zero">で適用
+irohaは、い~す<ol class="iroha">で適用
+alphaは、α,β,γ…<ol class="alpha">で適用
+*/
