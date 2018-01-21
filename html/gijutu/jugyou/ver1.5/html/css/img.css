@@ -1,0 +1,9 @@
+﻿@charset"UTF-8";
+img{
+	border:0;max-width:100%;
+	}
+/*画像のボーダーをなしにして横幅いっぱいにする*/
+img.href{
+	border:0;max-width:49%;
+	}
+/*<img class="href" src="??">*/

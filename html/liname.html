@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META http-equiv=Content-Style-Type content=text/css>
+<title>
+</title>
+<link rel="stylesheet" type="text/css" href="../css/img.css">
+<base target="_blank">
+</head>
+<body>
+<p>コマンドプロンプトを利用したファイル名の一括変更の方法を紹介する。</p>
+<p>複数のファイル名に連番をつけたり、一定のルールで名前を変更したい場合、専用のツールを使う手もあるが、コマンドプロンプトとExcelや、テキストエディターでもかなり柔軟な名前一括変更処理が出来る。</p>
+<p>まずはExcelを使った方法から紹介しよう。対象ファイルはpngファイルを例に説明する。</p>
+<p>コマンドプロンプトを開き、</p>
+<pre class="brush: bash; title: ; notranslate" title="">dir *.png /b &gt; rename.txt</pre>
+<p>を実行する。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-5.png"></p>
+<p style="text-align: left;">これで、フォルダーに存在する拡張子がpngのファイル名のみのリストがrename.txtファイルに書き込まれる。</p>
+<p style="text-align: left;">rename.txtをメモ帳等で開き、すべて選択後、ExcelのB列にコピーする。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-6.png"></p>
+<p style="text-align: left;">次に、A列全てに「ren」をコピーし、B列をC列にコピーする。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-7.png"></p>
+<p style="text-align: left;">C列を選択し、変更先のファイル名を置換等を使って変更する。Excelならセル操作で連番を付ける事も出来る。例では、ファイル名の「24_」の部分を「24px_」に変更している。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-8.png"></p>
+<p>「ren」はコマンドプロンプトでファイル名を変更するコマンド、B列が元の名前、C列が変更先のファイル名になる。</p>
+<p>Excelのデータ部分すべて選択し、メモ帳に貼り戻す。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-9.png"></p>
+<p style="text-align: left;">後ほどこれをバッチファイルとして実行するが、タブが入っていると上手く動かないので、タブを半角スペースに置換する。</p>
+<p style="text-align: left;">メモ帳の置換だと置き換え文字にタブがそのまま入力出来ないので、あらかじめタブをCtrl + Cでコピーしておいて、置換ウィンドウでCtrl + Vでタブをペースとすると良い。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-10.png"></p>
+<p style="text-align: left;">これで各行に「ren 元ファイル名 変更ファイル名」が記述されたテキストファイルが出来上がるので保存する。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-11.png"></p>
+<p style="text-align: left;">コマンドプロンプトで保存したファイルをバッチファイルに変更し、実行する。</p>
+<pre class="brush: bash; title: ; notranslate" title="">ren rename.txt rename.bat
+rename.bat</pre>
+<p style="text-align: left;">バッチファイルとは、コマンドプロンプト上で実行するコマンドのリストを記述したテキストファイルで、拡張子がbatである。バッチファイルはエクスプローラー上から直接実行しても動作する。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-12.png"></p>
+<p style="text-align: left;">バッチファイル実行後、ファイル名が一括変更される。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-13.png"></p>
+<p style="text-align: left;">コマンドプロンプトとExcel等の表計算ソフトが存在すれば出来るので、知っておくと便利な技である。</p>
+<p style="text-align: left;">次に、手順は大体同じだがNoEditorと言うフリーのテキストエディターを使った方法を紹介する。NoEditorはフリーで使えるテキストエディターで、筆者が昔から愛用しているソフトである。置換で正規表現が使える点が愛用している一つの理由だが、このエディター以外にも正規表現が使えるエディターなら同様の事が可能だ。</p>
+<p style="text-align: left;">NoEditorは<a href="http://www.yokkasoft.net/">YokkaSoft</a>からダウンロード出来る。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-4.png"></p>
+<p style="text-align: left;">Excelの時の手順同様、</p>
+<pre class="brush: bash; title: ; notranslate" title="">dir *.png /b &gt; hogehoge.txt</pre>
+<p style="text-align: left;">を実行しファイル名一覧をテキストファイルに保存する。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-14.png"></p>
+<p style="text-align: left;">保存したファイルをNoEditorで開く。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-15.png"></p>
+<p style="text-align: left;">置換ウィンドウを開き、正規表現を使って置換を行う。例ではファイル名の「px_」の部分を「dp_」に変更している。</p>
+<p style="text-align: left;">正規表現は奥が深く、ここで説明出来ないがかなり複雑な検索・置換を特有な記号を使って行う方法である。正規表現もソフトによって置換に使う記号が異なるので、下記コマンドがそのまま使えるとは限らない。</p>
+<p style="text-align: left;">検索する文字：(.*)px_(.*)<br />
+置換する文字：ren \1px_\2 \1dp_\2</p>
+<p style="text-align: left;">置換を実行すると、excel時同様「ren 元ファイル名　変更ファイル名」の形式になる。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-16.png"></p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-17.png"></p>
+<p style="text-align: left;">Excel時同様、batファイルに名前変更し、実行する。</p>
+<pre class="brush: bash; title: ; notranslate" title="">ren hogehoge.txt hogehoge.bat
+hogehoge.bat</pre>
+<p style="text-align: left;">これでファイル名が一括変更される。</p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-18.png"></p>
+<p style="text-align: center;"><img src="http://win8room.net/images/2014/05/file_cmdline-19.png"></p>
+<p style="text-align: left;">コマンドプロンプトや正規表現はなかなか使いこなすまでが難しく正規表現は難解なパズルな様であるが、ある程度使いこなせるようになれば大量のファイルやデータ操作時に仕事量を大幅に減らすことが出来る。</p>
+</body>
+</html>
