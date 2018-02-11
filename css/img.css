@@ -1,5 +1,10 @@
-﻿@charset"UTF-8";
+@charset"UTF-8";
 img{
-	border:0;width:100%;
+	border: 0;
+	max-width:100%;
+	height: auto;
+}
+img.center{
+	text-align: center;
 }
 /*画像のボーダーをなしにして横幅いっぱいにする*/
