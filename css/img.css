@@ -4,7 +4,7 @@ img{
 	max-width:100%;
 	height: auto;
 }
-img.center{
+.center{
 	text-align: center;
 }
 /*画像のボーダーをなしにして横幅いっぱいにする*/
