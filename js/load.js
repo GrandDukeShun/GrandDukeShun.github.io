@@ -7,9 +7,9 @@ $(function() {
 		$('#rate').empty().append(out_html.filter('#rate')[0].innerHTML);//insert
 	},function(jqXHR, textStatus) {
 		if(textStatus!=="success") {
-			var txt = "<p>textStatus:"+ textStatus + "</p>" +
-				"<p>status:"+ jqXHR.status + "</p>" +
-				"<p>responseText : </p><div>" + jqXHR.responseText +
+			var txt = "<b>textStatus:"+ textStatus + "</b>" +
+				"<b>status:"+ jqXHR.status + "</b>" +
+				"<b>responseText : </b><div>" + jqXHR.responseText +
 				"</div>";
 			$('#rate').html(txt);
 		}
