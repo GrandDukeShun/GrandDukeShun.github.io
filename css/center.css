@@ -1,0 +1,41 @@
+@charset"UTF-8";
+.center{
+  text-align: center;
+}
+/*--------------------------------------*/
+/*		インライン要素の中央表示のやり方		*/
+/*--------------------------------------*/
+/*
+	<div class="center">
+		<p>
+			インライン要素
+		</p>
+	</div>
+*/
+.parent{
+    border: 1px solid #aaa;
+    position: relative;
+    height: 400px;
+    width: 600px;
+}
+.inner{
+    border: 1px solid #aaa;
+    width: 300px;
+    height: 100px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+}
+/*--------------------------------------*/
+/*		ブロック要素の中央表示のやり方		*/
+/*--------------------------------------*/
+/*
+	<div class="parent">
+		<div class="inner">
+			ブロック要素
+		</div>
+	</div>
+*/
