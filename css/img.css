@@ -2,9 +2,8 @@
 img{
 	border: 0;
 	max-width:100%;
-	height: auto;
-}
-.center{
+	max-height: 100%;
 	text-align: center;
+	display:block
 }
 /*画像のボーダーをなしにして横幅いっぱいにする*/
